@@ -1,6 +1,7 @@
 const React = require("react");
 const { useState } = require("react");
 const Calculator = require("./calculator");
+const Style = require("./style.css");
 
 function App() {
   const [result, setResult] = useState("");

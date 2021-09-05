@@ -10,6 +10,18 @@ function App() {
     setResult(result.concat(event.target.name));
   }
 
+  function clearCal() {
+    setResult("");
+  }
+
+  function clearBack() {
+    setResult(result.slice(0));
+  }
+
+  function calResult() {
+    setResult(eval(result).toString());
+  }
+
   return (
     <>
       <div className="container">
@@ -18,10 +30,14 @@ function App() {
         </form>
 
         <div className="keypad">
-          <button onClick={handleClick}>Clear</button>
-          <button onClick={handleClick}>C</button>
+          <button className="highlight" onClick={clearCal} id="clearCal">
+            Clear
+          </button>
+          <button className="highlight" onClick={clearBack} id="clearBack">
+            C
+          </button>
           <button name="/" onClick={handleClick}>
-            /
+            &divide;
           </button>
           <button name="7" onClick={handleClick}>
             7
@@ -33,7 +49,7 @@ function App() {
             9
           </button>
           <button name="x" onClick={handleClick}>
-            x
+            &times;
           </button>
           <button name="4" onClick={handleClick}>
             4
@@ -45,7 +61,7 @@ function App() {
             6
           </button>
           <button name="-" onClick={handleClick}>
-            -
+            &ndash;
           </button>
           <button name="1" onClick={handleClick}>
             1
@@ -65,7 +81,9 @@ function App() {
           <button name="." onClick={handleClick}>
             .
           </button>
-          <button onClick={handleClick}>=</button>
+          <button className="highlight" onClick={calResult} id="clickResult">
+            =
+          </button>
         </div>
       </div>
     </>
